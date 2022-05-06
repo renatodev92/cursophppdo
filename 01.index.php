@@ -44,12 +44,12 @@ class Login {
         $this->setSenha($senha);
     }
 
-    // Função criada para pegar o email do usúario. Sempre use o get como padrão.
+    // Função criada para pegar o nome do usúario. Sempre use o get como padrão.
     public function getNome() {
         return $this->nome;
     }
 
-    // Função criada para setar o email do usúrio. Sempre use o set como padrão.
+    // Função criada para setar o nome do usúrio. Sempre use o set como padrão.
     public function setNome($n) {
         $this->nome = $n;
     }

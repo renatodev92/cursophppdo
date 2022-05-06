@@ -15,24 +15,41 @@
 //Abaixo criaremos com exemplo uma classe Carro.
 
 class Veiculo {
-    protected $model; // Aqui chamamos o atributo $model e estamos colocando o protected.
-    private $color;
-    public $year;
-
-    public function Speedup () {
+    public $ano;// Aqui chamamos o atributo $ano e estamos colocando o public.
+    private $cor; // Aqui chamamos o atributo $cor e estamos colocando o private.
+    protected $modelo; // Aqui chamamos o atributo $modelo e estamos colocando o protected.
+   
+    public function Acelerar() {
         echo "Acelerar!";
     }
-    public function Break () {
+    public function Frear() {
         echo "Frear";
     }
 
-    public function setModel($m) {
-        $this->model = $m;
+    public function setModelo($m) {
+        $this->modelo = $m;
     }
 
-   public function getModel() {
-       return $this->model;
-   }     
+    public function getModelo() {
+        return $this->modelo;
+    }
+
+    public function setCor($c){
+        $this->cor = $c;
+    }
+
+    public function getCor(){
+       return $this->cor;
+    }
+
+    public function setAno($a){
+        $this->ano = $a;
+    }
+
+    public function getAno(){
+        return $this->ano;
+    }
+
 
 
 }
@@ -41,30 +58,52 @@ class Veiculo {
 class Carro extends Veiculo{
 
     //Criando um methodo especifico que não existe na moto.
-    public function Openthedor() {
+    public function abrirPorta() {
         echo "Abrir a porta";
     }
 }
 
 // Com o extends a classe 'Moto' está herdando como henrança os atributos e methodos da classe Veiculos.
-class Moto extends Veiculo {
+class Moto extends Veiculo{
     
     //Criando um methodo especifico que não existe no carro.
-    public function Changehandlebars() {
-        echo "Trocar guidom da moto";
+    public function colocarCapacete() {
+        echo "Colocar capacete!";
     }
     
 }
 
 
-//Acessando através do modificador'PRIVATE'. Nesse caso temos que criar dentro da classe 'Veiculo' os methodos setModel e getModel. Caso contrario não poderiamos acessar a propiedade model do objeto 'Veiculo', pois ela está protegida 'Protected'.
-$veiculo = new Veiculo();
-$veiculo->setModel('Vectra');
-echo $veiculo->getModel();
+//Acessando através do modificador'PRIVATE'. Nesse caso temos que criar dentro da classe 'Veiculo' os methodos setmodelo e getmodelo. Caso contrario não poderiamos acessar a propiedade modelo do objeto 'Veiculo', pois ela está protegida 'Protected'.
 
-//Acessando atrevés do modificador PRIVATE da classse 'VEICULO', nesse caso os dados não serão herdados em outra classe como herança. Mesmo que chamados. Pois está privado somente a classe pai = 'VEICULO'.
-// O comando abaixo dará um erro dentro do PHP.
-// = $veiculo->color = "Black";
+/* //Exemplo1: Não conseguimos acessar o modelo diretamente.
+$carro1 = new Carro();
+echo $carro1->modelo = "Vectra"; */
+
+/* //Exemplo2: Agora acessando os a propiedade 'modelo' através do métodos puclics setModel e getModel.
+$carro2 = new Carro();
+$carro2->setModelo('Corsa Wind');
+echo $carro2->getModelo(); */
+
+
+//PRIVATE - Este modificador é o mais restrito. Com ele definimos que somente a própria classe em que um atributo ou método foi declarado pode acessá-lo. Ou seja, nenhuma outra parte do código, nem mesmo as classes filhas, pode acessar esse atributo ou método.
+
+
+/* //Exemplo1: Não foi possivel acessar o método cor, pois ele está private e só pode ser acessado pela classe pai 'VEICULO'.
+$moto1 = new Moto();
+echo $moto1->cor = "Red";
+var_dump($moto1); */
+
+
+/* //opens naruto shippudenshExemplo2: Agora acessando os a propiedade 'cor' através do métodos puclics setCor e getModel.
+$moto2 = new Moto();
+$moto2->setCor("Amarelo");
+echo $moto2->getCor();
+
+var_dump($moto2);
+
+
+
 
 
 
