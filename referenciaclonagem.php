@@ -14,7 +14,8 @@ $pessoa2 = clone $pessoa; // Fazendo o clone do objeto pessoa em pessoa2.
 $pessoa2->idade = 35;
 
 //Note que vai aparecer 25.
-//echo $pessoa->idade;  
+echo $pessoa->idade;
+echo "<br>";
 
 //Note que vai aparecer 35.
 echo $pessoa2->idade;  

@@ -18,66 +18,80 @@
 //Abaixo criaremos com exemplo uma classe Carro.
 
 class Veiculo {
-    public $model; 
-    public $color;
-    public $year;
+   public $modelo;
+   public $cor;
+   public $ano;
 
+   public function setModelo($m){
+       $this->modelo = $m;
+   }
+
+   public function setCor($c){
+       $this->cor = $c;
+   }
+
+   public function setAno($a){
+       $this->ano = $a;
+   }
     
+   public function getModelo(){
+       return $this->modelo;
+   }
 
-        private function Speedup () {
-        echo "Acelerar!";
-    }
+   public function getCor(){
+       return $this->cor;
+   }
 
-    // Veja que acessamos um methodo private dentro da própia classe 'VEICULO'. Sendo assim conseguimos deixar ele publico e instanciar a outras classes.
-    public function Showaction() {
-        $this->Speedup();
-    }
-    public function Break () {
-        echo "Frear";
-    }
+   public function getAno(){
+       return $this->ano;
+   }
 
-    public function setModel($m) {
-        $this->model = $m;
-    }
-
-   public function getModel() {
-       return $this->model;
-   }     
+   private function Acelerar(){
+       echo "Acelerando";
+   }
 
 
 }
 
 // Com o extends a classe 'Carro' está herdando como henrança os atributos e methodos da classe Veiculos.
-class Carro extends Veiculo{
-
+class Carro extends Veiculo {
+    
     //Criando um methodo especifico que não existe na moto.
-    public function Openthedor() {
-        echo "Abrir a porta";
+    public function abrirPorta() {
+        echo "Abrir a porta!";
     }
 }
 
 // Com o extends a classe 'Moto' está herdando como henrança os atributos e methodos da classe Veiculos.
 class Moto extends Veiculo {
-    
     //Criando um methodo especifico que não existe no carro.
-    public function Changehandlebars() {
-        echo "Trocar guidom da moto";
+    public function colocarCapacete() {
+        echo "Colocar capacete motocicleta!";
     }
     
 }
 
-//Acessando o methodo Speedup() do objeto 'VEICULO' veja que da erro, pois ele só podera ser usado somente no objeto 'VEICULO'. Não poderá ser instanciado. o methodo Speedup() está como private. E só pode ser acessado dentro da classe pai = 'VEICULO'.
+//Acessando o methodo Acelerar() do objeto 'VEICULO' veja que da erro, pois ele só podera ser usado somente no objeto 'VEICULO'. 
+//Não poderá ser instanciado. o methodo Acelerar() está como private. E só pode ser acessado dentro da classe pai = 'VEICULO'.
 //Executando o retorno abaixo trará um erro.
 
 /* $carro = new Veiculo();
-$carro->Speedup();
+$carro->Acelerar();
  */
 
-  // Veja que acessamos um methodo private dentro da própia classe 'VEICULO'. Sendo assim conseguimos deixar ele publico e instanciar a outras classes.
 
-  $carro = new Veiculo();
-  $carro->Showaction();
+$carro1 = new Carro();
 
+$carro1->setModelo("Corsa");
+$carro1->setCor("Cinza");
+$carro1->setAno(1996);
+
+echo "Modelo: " . $carro1->getModelo() . "<br>";
+echo "Cor: "    . $carro1->getCor()    . "<br>";
+echo "Ano:"     . $carro1->getAno()    . "<br>";
+
+// Veja que nem fora da classe 'VEICULO' conseguimos acessar o método 'Acelerar', pois ele está como 'PRIVATE' somente a classe '.
+//echo $veiculo1->Acelerar();
 
 
 

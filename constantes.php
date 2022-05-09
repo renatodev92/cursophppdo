@@ -12,9 +12,10 @@ class Pessoa {
 $pessoa = new Pessoa();
 
 //Chamando o método exibir nome da class 'PESSOA'.
-//$pessoa->exibirNome();
+$pessoa->exibirNome();
+echo "<br><br><br>";
 
-//Usando o extends para estender a class 'PESSO' para nova classe 'Rodrigo'.
+//Usando o extends para estender a class 'PESSOA' para nova classe 'Rodrigo'.
 class Rodrigo extends Pessoa {
     const nome = "Oliveira";
     public function exibirNome() {

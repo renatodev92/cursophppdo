@@ -1,10 +1,11 @@
 <?php 
 
 /* O que é static em php?
-static é usado para definir que um método ou atributo em uma classe é estático. Isso significa (como alguém que conhece de OO deve saber) que aquele método/atributo pertence à classe e não à uma instância dela e, por isso, pode ser acessado sem instânciar um novo objeto. */
+static é usado para definir que um método ou atributo em uma classe é estático. 
+Isso significa que aquele método/atributo pertence à classe e não à uma instância dela e por isso, pode ser acessado sem instânciar um novo objeto. */
 
 //Quando se trabalha com atributos staticos o this não funciona.
-//Sendo assim temos que utilizar o self.
+//Sendo assim temos que utilizar o self ao invés do THIS
 
 
 class Login {
@@ -12,11 +13,11 @@ class Login {
     public static $user;
 
     public static function verificarLogin(){
-        echo "O usúario " .self::$user. " esta logado!";
+        echo "O usúario " .self::$user. " esta logado!<br>";
     }
 
     public function sairSistema() {
-        echo "O usuario se desligou do sistema!";
+        echo "O usuario deslogou do sistema! <br>";
     }
 
 }
@@ -30,9 +31,14 @@ class Login {
 // Sendo o objeto static podemos acessalo da seguinte forma, sem instanciar uma classe.
 
 
-Login::$user = "Admin";
+Login::$user = "renatokof97'";
 Login::verificarLogin();
-Login::sairSistema(); //Aqui também podemos acessar um metodo que não é static. Sem instanciar a classe.
+
+
+//Aqui também podemos acessar um metodo que não é static. Instanciando a classe.
+$login1 = new Login();
+
+$login1->sairSistema();
 
 
 
